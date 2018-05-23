@@ -9,9 +9,11 @@ arch=('x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2')
-_patches=("theme.patch"
+_patches=(
+	"theme.patch"
 	"termgap.patch"
-	"binding.patch")
+	"binding.patch"
+)
 source=("http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz"
 	"dwm.desktop"
 	"${_patches[@]}")
