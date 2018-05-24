@@ -1,5 +1,5 @@
---- a/config.def.h	2018-05-23 23:07:22.009449873 +0700
-+++ b/config.def.h	2018-05-24 00:00:26.257317547 +0700
+--- a/config.def.h	2018-05-24 15:03:19.480422062 +0700
++++ b/config.def.h	2018-05-24 15:10:20.306559556 +0700
 @@ -1,4 +1,5 @@
  /* See LICENSE file for copyright and license details. */
 +#include <X11/XF86keysym.h>
@@ -15,7 +15,7 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -56,11 +57,14 @@
+@@ -56,6 +57,9 @@
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
  static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
  static const char *termcmd[]  = { "st", NULL };
@@ -25,20 +25,13 @@
  
  static Key keys[] = {
  	/* modifier                     key        function        argument */
--	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
--	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-+	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
- 	{ MODKEY,                       XK_b,      togglebar,      {0} },
- 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
- 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 @@ -92,6 +96,9 @@
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+	{ 0,				XF86XK_AudioRaiseVolume,	spawn,	{.v = upvol } },
-+	{ 0,				XF86XK_AudioLowerVolume, 	spawn,	{.v = downvol } },
-+	{ 0,				XF86XK_AudioMute,		spawn,	{.v = mute } },
++	{ 0,                            XF86XK_AudioRaiseVolume,        spawn,  {.v = upvol } },
++	{ 0,                            XF86XK_AudioLowerVolume,        spawn,  {.v = downvol } },
++	{ 0,                            XF86XK_AudioMute,               spawn,  {.v = mute } },
  };
  
  /* button definitions */
