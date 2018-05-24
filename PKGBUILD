@@ -11,7 +11,6 @@ options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2')
 _patches=(
 	"theme.patch"
-	"termgap.patch"
 	"binding.patch"
 )
 source=("http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz"
@@ -20,7 +19,6 @@ source=("http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz"
 sha256sums=('c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe'
             'bc36426772e1471d6dd8c8aed91f288e16949e3463a9933fee6390ee0ccd3f81'
             'e5a8807c408692c4d1abfc59cd5b3a2ddb2bcd06ccaa5593cb94ec60687f3bef'
-            'c00522ca00ca6c21c3e9c049717d75bc0e30ff63ef0742a00d90797699ff187d'
             'b35ae938c22d186605d2f1de6a345b01f5aaa3fedef5b9de9efe91f48ec38aba')
 
 prepare() {
